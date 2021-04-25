@@ -29,5 +29,6 @@
 	</dependencyManagement>
 	<modules>
 		<module>strategy</module>
+		<module>facade</module>
 	</modules>
 </project>
