@@ -30,5 +30,6 @@
 	<modules>
 		<module>strategy</module>
 		<module>facade</module>
+		<module>factory</module>
 	</modules>
 </project>
