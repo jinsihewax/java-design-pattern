@@ -31,5 +31,6 @@
 		<module>strategy</module>
 		<module>facade</module>
 		<module>factory</module>
+		<module>enjoy-yuan</module>
 	</modules>
 </project>
