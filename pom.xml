@@ -32,5 +32,6 @@
 		<module>facade</module>
 		<module>factory</module>
 		<module>enjoy-yuan</module>
+		<module>state</module>
 	</modules>
 </project>
