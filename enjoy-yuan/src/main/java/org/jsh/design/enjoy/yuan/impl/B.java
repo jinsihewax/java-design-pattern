@@ -17,6 +17,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class B implements A, Cloneable {
 
+	private String name;
+
 	@Override
 	public void doTest() {
 		System.out.println("B");
@@ -26,4 +28,13 @@ public class B implements A, Cloneable {
 	public B clone() throws CloneNotSupportedException {
 		return (B) super.clone();
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 }
