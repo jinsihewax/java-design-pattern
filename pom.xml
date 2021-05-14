@@ -34,5 +34,6 @@
 		<module>enjoy-yuan</module>
 		<module>state</module>
 		<module>decorator</module>
+		<module>chain</module>
 	</modules>
 </project>
