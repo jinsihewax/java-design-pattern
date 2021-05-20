@@ -35,5 +35,6 @@
 		<module>state</module>
 		<module>decorator</module>
 		<module>chain</module>
+		<module>adapter</module>
 	</modules>
 </project>
