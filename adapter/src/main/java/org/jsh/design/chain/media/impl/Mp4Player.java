@@ -1,7 +1,9 @@
 package org.jsh.design.chain.media.impl;
 
 import org.jsh.design.chain.media.AdvancedMediaPlayer;
+import org.springframework.stereotype.Component;
 
+@Component("mp4")
 public class Mp4Player implements AdvancedMediaPlayer {
 
 	@Override

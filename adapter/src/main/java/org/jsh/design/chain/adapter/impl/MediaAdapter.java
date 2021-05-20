@@ -1,28 +1,39 @@
 package org.jsh.design.chain.adapter.impl;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 import org.jsh.design.chain.adapter.MediaPlayer;
 import org.jsh.design.chain.media.AdvancedMediaPlayer;
-import org.jsh.design.chain.media.impl.Mp4Player;
-import org.jsh.design.chain.media.impl.VlcPlayer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MediaAdapter implements MediaPlayer {
 
-	AdvancedMediaPlayer advancedMusicPlayer;
+	@Autowired
+	private Map<String, AdvancedMediaPlayer> mediaPlayers = new ConcurrentHashMap<String, AdvancedMediaPlayer>(2);
 
-	public MediaAdapter(String audioType) {
-		if (audioType.equalsIgnoreCase("vlc")) {
-			advancedMusicPlayer = new VlcPlayer();
-		} else if (audioType.equalsIgnoreCase("mp4")) {
-			advancedMusicPlayer = new Mp4Player();
-		}
+	// AdvancedMediaPlayer advancedMusicPlayer;
+	//
+	// public MediaAdapter(String audioType) {
+	// if (audioType.equalsIgnoreCase("vlc")) {
+	// advancedMusicPlayer = new VlcPlayer();
+	// } else if (audioType.equalsIgnoreCase("mp4")) {
+	// advancedMusicPlayer = new Mp4Player();
+	// }
+	// }
+
+	private AdvancedMediaPlayer getAdvancedMediaPlayer(String audioType) {
+		return mediaPlayers.get(audioType);
 	}
 
 	@Override
 	public void play(String audioType, String fileName) {
 		if (audioType.equalsIgnoreCase("vlc")) {
-			advancedMusicPlayer.playVlc(fileName);
+			getAdvancedMediaPlayer(audioType).playVlc(fileName);
 		} else if (audioType.equalsIgnoreCase("mp4")) {
-			advancedMusicPlayer.playMp4(fileName);
+			getAdvancedMediaPlayer(audioType).playMp4(fileName);
 		}
 	}
 }

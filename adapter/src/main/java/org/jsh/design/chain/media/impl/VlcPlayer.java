@@ -1,7 +1,9 @@
 package org.jsh.design.chain.media.impl;
 
 import org.jsh.design.chain.media.AdvancedMediaPlayer;
+import org.springframework.stereotype.Component;
 
+@Component("vlc")
 public class VlcPlayer implements AdvancedMediaPlayer {
 	@Override
 	public void playVlc(String fileName) {
