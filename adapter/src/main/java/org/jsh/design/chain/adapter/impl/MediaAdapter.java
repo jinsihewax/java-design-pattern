@@ -14,8 +14,8 @@ public class MediaAdapter implements MediaPlayer {
 	@Autowired
 	private Map<String, AdvancedMediaPlayer> mediaPlayers = new ConcurrentHashMap<String, AdvancedMediaPlayer>(2);
 
-	// AdvancedMediaPlayer advancedMusicPlayer;
-	//
+	AdvancedMediaPlayer advancedMusicPlayer;
+
 	// public MediaAdapter(String audioType) {
 	// if (audioType.equalsIgnoreCase("vlc")) {
 	// advancedMusicPlayer = new VlcPlayer();
@@ -24,16 +24,18 @@ public class MediaAdapter implements MediaPlayer {
 	// }
 	// }
 
-	private AdvancedMediaPlayer getAdvancedMediaPlayer(String audioType) {
-		return mediaPlayers.get(audioType);
+	private void getAdvancedMediaPlayer(String audioType) {
+		advancedMusicPlayer = mediaPlayers.get(audioType);
 	}
 
 	@Override
 	public void play(String audioType, String fileName) {
 		if (audioType.equalsIgnoreCase("vlc")) {
-			getAdvancedMediaPlayer(audioType).playVlc(fileName);
+			getAdvancedMediaPlayer(audioType);
+			advancedMusicPlayer.playVlc(fileName);
 		} else if (audioType.equalsIgnoreCase("mp4")) {
-			getAdvancedMediaPlayer(audioType).playMp4(fileName);
+			getAdvancedMediaPlayer(audioType);
+			advancedMusicPlayer.playMp4(fileName);
 		}
 	}
 }
