@@ -36,5 +36,6 @@
 		<module>decorator</module>
 		<module>chain</module>
 		<module>adapter</module>
+		<module>bridging</module>
 	</modules>
 </project>
